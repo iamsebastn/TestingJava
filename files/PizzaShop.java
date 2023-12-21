@@ -7,11 +7,11 @@ public class PizzaShop {
 	/**
 	 * Stunde zu der die Pizzeria öffnet.
 	 */
-	private int opens;
+	private int openHour;
 	/**
 	 * Stunde zu der die Pizzeria schließt.
 	 */
-	private int closes;
+	private int closingHour;
 	/**
 	 * Anzahl der Pizzen die von dieser Pizzeria pro Stunde gebacken werden können.
 	 */
@@ -40,8 +40,8 @@ public class PizzaShop {
 		if (0 >= pizzasPerHour) {
 			throw new IllegalArgumentException("Must be able to produce pizzas");
 		}
-		this.opens = opens;
-		this.closes = closes;
+		this.openHour = opens;
+		this.closingHour = closes;
 		this.pizzasPerHour = pizzasPerHour;
 	}
 
@@ -61,18 +61,17 @@ public class PizzaShop {
 		}
 
 		// Überprüfen, ob die Bestellung innerhalb der Öffnungszeiten liegt
-		if (currentHour < opens || currentHour >= closes) {
+		if (currentHour < openHour || currentHour >= closingHour) {
 			throw new IllegalArgumentException("Bestellungen können nur während der Öffnungszeiten bearbeitet werden.");
 		}
 
 		// Überprüfen, ob die Bestellung innerhalb der Kapazität liegt
-		int availableCapacity = (closes - currentHour) * pizzasPerHour - pendingPizzas;
-		if (requestedPizzas > availableCapacity) return false;
+		int availableCapacity = (closingHour - currentHour) * pizzasPerHour - pendingPizzas;
+        return requestedPizzas <= availableCapacity;
 
 
 		// Wenn alle Bedingungen erfüllt sind, kann die Bestellung bearbeitet werden
-		return true;
-	}
+    }
 
 	public int getPendingPizzas() {
 		return pendingPizzas;
