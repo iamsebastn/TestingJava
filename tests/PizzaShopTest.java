@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 class PizzaShopTest {
-	private PizzaShop shop = new PizzaShop(10, 20, 10);
+	PizzaShop shop = new PizzaShop(10, 20, 10);
 
 	/**
 	 * Es muss bei jeder Bestellung mindestens eine Pizza bestellt werden, sonst
@@ -131,7 +131,7 @@ class PizzaShopTest {
 		assertFalse(canProcess);
 	}
 
-	// Konstruktur Tests
+	// Constructor Tests
 	@Test
 	void testInvalidOpenHours() {
 		// act & assert
