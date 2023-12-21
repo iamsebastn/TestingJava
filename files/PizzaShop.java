@@ -29,16 +29,16 @@ public class PizzaShop {
 	 */
 	public PizzaShop(int opens, int closes, int pizzasPerHour) {
 		if (opens < 0 || opens >= 24) {
-			throw new IllegalArgumentException("No valid hour: " + opens);
+			throw new IllegalArgumentException("Zu dieser Zeit haben wir nicht geöffnet: " + opens);
 		}
 		if (closes < 0 || closes >= 24) {
-			throw new IllegalArgumentException("No valid hour: " + closes);
+			throw new IllegalArgumentException("Zu dieser Zeit haben wir nicht geöffnet: " + closes);
 		}
 		if (opens >= closes) {
-			throw new IllegalStateException("Cannot open before closing! " + opens + " until " + closes);
+			throw new IllegalStateException("Wir könne nicht vor " + opens + " bis " + closes);
 		}
 		if (0 >= pizzasPerHour) {
-			throw new IllegalArgumentException("Must be able to produce pizzas");
+			throw new IllegalArgumentException("Wir müssen Kapazität für Pizzen haben");
 		}
 		this.openHour = opens;
 		this.closingHour = closes;
