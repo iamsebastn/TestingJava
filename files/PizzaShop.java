@@ -69,7 +69,6 @@ public class PizzaShop {
 		int availableCapacity = (closingHour - currentHour) * pizzasPerHour - pendingPizzas;
         return requestedPizzas <= availableCapacity;
 
-
 		// Wenn alle Bedingungen erfüllt sind, kann die Bestellung bearbeitet werden
     }
 
