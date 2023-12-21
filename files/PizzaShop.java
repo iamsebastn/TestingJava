@@ -1,4 +1,4 @@
-package de.dhbw.ka.se1.portfolio.pizza;
+package files;
 
 /**
  * Pizzeria mit Öffnungszeiten, in denen diese Bestellungen bearbeiten kann.
@@ -61,15 +61,14 @@ public class PizzaShop {
 		}
 
 		// Überprüfen, ob die Bestellung innerhalb der Öffnungszeiten liegt
-		if (currentHour < openingHour || currentHour >= closingHour) {
+		if (currentHour < opens || currentHour >= closes) {
 			throw new IllegalArgumentException("Bestellungen können nur während der Öffnungszeiten bearbeitet werden.");
 		}
 
 		// Überprüfen, ob die Bestellung innerhalb der Kapazität liegt
-		int availableCapacity = (closingHour - currentHour) * pizzasPerHour - pendingPizzas;
-		if (requestedPizzas > availableCapacity) {
-			return false;
-		}
+		int availableCapacity = (closes - currentHour) * pizzasPerHour - pendingPizzas;
+		if (requestedPizzas > availableCapacity) return false;
+
 
 		// Wenn alle Bedingungen erfüllt sind, kann die Bestellung bearbeitet werden
 		return true;

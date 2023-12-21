@@ -1,4 +1,6 @@
-package de.dhbw.ka.se1.portfolio.pizza;
+package tests;
+
+import files.PizzaShop;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
